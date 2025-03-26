@@ -8,10 +8,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: ${{ secrets.GIT_ACCESS_TOKEN }}
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -22,8 +21,13 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
         run: |
-          python3 -m venv .venv
+          python -m venv .venv
           source .venv/bin/activate
           pip install -r scraper/requirements.txt
 
