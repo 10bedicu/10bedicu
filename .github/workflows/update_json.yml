@@ -12,24 +12,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Cache dependencies
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Cache pip downloads
         uses: actions/cache@v3
         with:
-          path: .venv
+          path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
+      - name: Create & activate venv, install deps
         run: |
-          mkdir -p .venv
           python -m venv .venv
           source .venv/bin/activate
+          pip install --upgrade pip
           pip install -r scraper/requirements.txt
 
       - name: Create local changes
