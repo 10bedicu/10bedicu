@@ -1,25 +1,56 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "set NODE_PATH=. && next dev -p 4000",
-    "export": "next export",
-    "build": "set NODE_PATH=. && next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "@react-icons/all-files": "^4.1.0",
-    "@tailwindcss/aspect-ratio": "^0.2.1",
-    "google-map-react": "^2.1.10",
-    "next": "^12.2",
-    "qrcode.react": "^3.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
-  }
+    "name": "10bedicu",
+    "version": "1.0.0",
+    "description": "10BedICU - A web portal supporting ICU deployments in rural hospitals.",
+    "author": "OHC Network <support@ohc.network>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ohcnetwork/10bedicu.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ohcnetwork/10bedicu/issues"
+    },
+    "homepage": "https://10bedicu.org",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_PATH=. next dev -p 4000",
+        "export": "next export",
+        "build": "cross-env NODE_PATH=. next build",
+        "start": "next start",
+        "lint": "next lint",
+        "clean": "rm -rf node_modules package-lock.json yarn.lock .next",
+        "check-updates": "npx npm-check-updates",
+        "update-deps": "npx npm-check-updates -u && npm install"
+    },
+    "dependencies": {
+        "@headlessui/react": "^1.7.17",
+        "@react-icons/all-files": "^4.1.0",
+        "@tailwindcss/aspect-ratio": "^0.2.1",
+        "google-map-react": "^2.1.10",
+        "next": "^12.2",
+        "qrcode.react": "^3.1.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-icons": "^4.3.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.2.6",
+        "cross-env": "7.0.3",
+        "postcss": "^8.3.5",
+        "tailwindcss": "^2.2.4"
+    },
+    "engines": {
+        "node": ">=16",
+        "npm": ">=8"
+    },
+    "keywords": [
+        "10bedicu",
+        "healthcare",
+        "ICU",
+        "nextjs",
+        "react",
+        "telemedicine",
+        "ohc-network"
+    ]
 }
